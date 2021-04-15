@@ -107,10 +107,13 @@ export default class Post extends React.Component{
 
       <TouchableOpacity style={styles.submitbutton} onPress={()=>{this.addPost(),this.props.navigation.navigate('UploadPic',{details:this.state.uniqueID})}}><Text style={styles.textstyle}>Post</Text></TouchableOpacity>
 
+      
+
       </KeyboardAvoidingView>
       </View>
     )
   }
+  
 }
 
 const styles = StyleSheet.create({

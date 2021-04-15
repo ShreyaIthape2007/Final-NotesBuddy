@@ -73,12 +73,7 @@ export default class Feed extends React.Component {
       <SafeAreaProvider>
         <View style={styles.container}>
 
-        <View>
 
-          <AppHeader title="View notes" navigation={this.props.navigation} />
-
-
-        </View>
     
 
           <FlatList

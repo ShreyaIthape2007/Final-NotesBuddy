@@ -11,12 +11,16 @@ import {
   FlatList,
   TextInput,
   Alert,
+  Image
 } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import firebase from 'firebase';
 import db from '../config';
 import { Card } from 'react-native-elements';
 import AppHeader from '../components/AppHeader'
+import * as ImagePicker from "expo-image-picker";
+import * as Permissions from "expo-permissions";
+
 
 export default class NotesDetails extends React.Component {
   constructor(props) {
@@ -27,7 +31,23 @@ export default class NotesDetails extends React.Component {
       description: this.props.navigation.getParam('details')['Description'],
       grade: this.props.navigation.getParam('details')['Grade'],
       board: this.props.navigation.getParam('details')['Board'],
+      contact:'',
+      getimageurl:''
+
     };
+  }
+
+  //getContact=()=>{
+  //  db.collection('USERS').
+  //}
+
+  getImage=async()=>{
+    const ref = firebase.storage().ref('UserProfile/Notes/buddy2@gmail.com_mbcr2g');
+    const url = await ref.getDownloadURL();
+    this.setState({
+      getimageurl:url
+    })
+
   }
 
 
@@ -65,6 +85,9 @@ export default class NotesDetails extends React.Component {
                   Description : {this.state.description}
                 </Text>
               </Card>
+             
+
+           
               
             </Card>
           
